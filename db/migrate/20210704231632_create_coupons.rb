@@ -4,8 +4,8 @@ class CreateCoupons < ActiveRecord::Migration[6.1]
       t.string :product_name
       t.date :expiration_date
       t.decimal :value
-      t.integer :user_id
-      t.integer :store_id, null: true
+      t.references :user, null: false, foreign_key: true
+      t.references :store, null: false, foreign_key: true
 
       t.timestamps
     end

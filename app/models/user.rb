@@ -1,10 +1,5 @@
 class User < ApplicationRecord
   has_secure_password
-
-  def new
-    @user = User.new
-  end
-
-  def create
-  end
+  validates :name, :email,  presence: true
+  validates :email, uniqueness: true
 end
