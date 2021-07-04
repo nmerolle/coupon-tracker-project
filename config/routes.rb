@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root 'sessons#home'
-  get '/signup' 'users#new'
-  get '/login' 'sessions#new'
-  post '/login' 'sessions#new'
+  root 'sessions#home'
+  get '/signup' => 'users#new'
+  get '/login' => 'sessions#new'
+  #post '/login' 'sessions#new'
   resources :stores
   resources :coupons
   resources :users
