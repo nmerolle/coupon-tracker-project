@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_04_231632) do
+ActiveRecord::Schema.define(version: 2021_07_05_005358) do
 
   create_table "coupons", force: :cascade do |t|
     t.string "product_name"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_07_04_231632) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.string "email"
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
