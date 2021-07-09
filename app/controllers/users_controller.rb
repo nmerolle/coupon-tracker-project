@@ -7,10 +7,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to coupons_path
+      redirect_to user_path(@user)
     else
       render :new 
     end
+  end
+
+  def show
+    @user = User.find_by_id(params[:id])
   end
 
 
