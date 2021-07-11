@@ -1,4 +1,5 @@
 class CouponsController < ApplicationController
+ before_action :redirect_if_not_logged_in
 
   def index
     @coupons = Coupon.all
@@ -23,7 +24,7 @@ class CouponsController < ApplicationController
 
   def update
     find_coupon
-    @copuon.update(coupn_params)
+    @copuon.update(coupon_params)
     if @coupon.valid?
       redirect_to coupons_path
     else
@@ -46,6 +47,6 @@ class CouponsController < ApplicationController
   end
   
   def find_coupon
-    @coupon = Coupon.find(params[:id])
+    @coupon = Coupon.find_by_id(params[:id])
   end
 end
