@@ -1,0 +1,18 @@
+<h1>Create New Coupon</h1>
+
+<%= form_for @coupon do |f| %>
+<div>
+<%= f.label :product_name %>
+<%= f.text_field :product_name %>
+</div>
+<div>
+<%= f.label :expiration_date %>
+<%= f.date_field :expiration_date %>
+</div>
+<div>
+<%= f.label :value %>
+<%= f.number_field :value, step: 0.01  %>
+</div>
+<br><br>
+<%= f.submit "Add Coupon" %>
+<% end %>
