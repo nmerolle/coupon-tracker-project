@@ -1,6 +1,6 @@
 <h1>Create New Coupon</h1>
 
-<%= form_for @coupon do |f| %>
+<%= form_for [@user, @coupon] do |f| %>
 <div>
 <%= f.label :product_name %>
 <%= f.text_field :product_name %>
@@ -11,7 +11,9 @@
 </div>
 <div>
 <%= f.label :value %>
-<%= f.number_field :value, step: 0.01  %>
+<%= f.number_field :value, min: 0, step: 0.01  %>
+
+<%= f.hidden_field :user_id %>
 </div>
 <br><br>
 <%= f.submit "Add Coupon" %>

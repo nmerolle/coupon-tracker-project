@@ -6,13 +6,14 @@ class CouponsController < ApplicationController
   end
 
   def new
-    @coupon = Coupon.new
+    @user = current_user
+    @coupon = @user.coupons.build
   end
 
   def create
     @coupon = current_user.coupons.build(coupon_params)
     if @coupon.save
-      redirect_to coupons_path
+      redirect_to user_coupon_path(@user, @coupon)
     else
       render :new
     end  
@@ -26,7 +27,7 @@ class CouponsController < ApplicationController
     find_coupon
     @copuon.update(coupon_params)
     if @coupon.valid?
-      redirect_to coupons_path
+      redirect_to user_coupons_path
     else
       render :edit 
     end
@@ -35,7 +36,7 @@ class CouponsController < ApplicationController
   def destroy
     find_coupon
     @coupon.destroy
-    redirect_to coupons_path
+    redirect_to user_coupons_path
   end
 
 
@@ -43,7 +44,7 @@ class CouponsController < ApplicationController
   private
 
   def coupon_params
-    params.require(:coupon).permit(:product_name, :expiration_date, :value)
+    params.require(:coupon).permit(:product_name, :expiration_date, :value, :user_id, :store_id)
   end
   
   def find_coupon

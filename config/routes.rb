@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete '/logout' => "sessions#destroy"
-  resources :coupons
   resources :stores
-  resources :users
+  resources :users do
+    resources :coupons
+  end
   
 end
