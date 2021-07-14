@@ -7,8 +7,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete '/logout' => "sessions#destroy"
   resources :stores
-  resources :users do
-    resources :coupons
-  end
+  resources :users
+  resources :coupons
   
 end

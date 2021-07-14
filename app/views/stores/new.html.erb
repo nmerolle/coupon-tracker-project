@@ -1,0 +1,10 @@
+<h1>Add a Store</h1>
+
+<%= form_with(model: @store) do |f| %>
+<div>
+<%= f.label :name %>
+<%= f.text_field :username %>
+</div>
+<br><br>
+<%= f.submit "Add Store" %>
+<% end %>

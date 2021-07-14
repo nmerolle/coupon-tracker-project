@@ -1,7 +1,6 @@
-<h1>Show Page</h1>
-
 <h2><%= @coupon.product_name %></h2>
-<h3> <%= @coiupon.expiration_date %></h2>
-<h3><%= @coupon.value %></h2>
+<h3><%= @coupon.store_name %></h3>
+<p>Expiration: <%= @coupon.expiration_date %></p>
+<p>Value: <%= @coupon.value %></p>
 
 <%= link_to "delete", coupon_path(@coupon), method: "delete" %>
