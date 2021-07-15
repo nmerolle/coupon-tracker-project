@@ -1,7 +1,7 @@
 <h1>Your Coupons</h1>
 
 <ul>
-  <%= @coupons.each do |coupon| %>
+  <% current_user.coupons.each do |coupon| %>
     <li><%= link_to coupon.product_name, coupon_path(coupon) %></li>
   <% end %>
 </ul>

@@ -1,4 +1,4 @@
-<h1>Edit Coupon</h1>
+<h1>Edit <%= @coupon.product_name %></h1>
 
 <%= form_for  @coupon do |f| %>
 <div>
@@ -13,6 +13,20 @@
 <%= f.label :value %>
 <%= f.number_field :value, step: 0.01  %>
 </div>
+
+<h3>Select Store</h3>
+<div>
+  <%= f.collection_select :store_id, Store.all, :id, :name, include_blank: "Select Store"  %>
+</div>
+
+<h3>or, Add a New Store</h3>
+<%= f.fields_for :store, @coupon.build_store do |s|%>
+  <div>
+    <%= s.label :name %>
+    <%= s.text_field :name %>
+  </div>
+<% end %>
 <br><br>
 <%= f.submit "Edit Coupon" %>
+
 <% end %>

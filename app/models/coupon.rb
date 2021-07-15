@@ -1,9 +1,9 @@
 class Coupon < ApplicationRecord
   belongs_to :user
   belongs_to :store
-  accepts_nested_attributes_for :store, reject_if: :all_blank
+  accepts_nested_attributes_for :store, reject_if: proc { |attributes| attributes['name'].blank? }
 
   def store_name
-    self.store ? self.store.name : "Manufacturer Coupon"
+     self.store.name if self.store
   end
 end

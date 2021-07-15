@@ -3,4 +3,5 @@
 <p>Expiration: <%= @coupon.expiration_date %></p>
 <p>Value: <%= @coupon.value %></p>
 
-<%= link_to "delete", coupon_path(@coupon), method: "delete" %>
+<%= link_to "Edit", edit_coupon_path(@coupon) %>
+<%= link_to "Delete", coupon_path(@coupon), method: "delete" %>

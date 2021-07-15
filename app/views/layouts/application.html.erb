@@ -21,6 +21,12 @@
   <%= link_to "Sign Up", signup_path %> |
   <%= link_to "Log In", login_path %>
   <% end %>
+ 
+ <% if flash[:error] %>
+  <% flash[:error].each do |error| %>
+    <p><%= error %></p>
+    <% end %>
+  <% end %>
   
     <%= yield %>
   </body>
