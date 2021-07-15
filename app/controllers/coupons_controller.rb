@@ -48,7 +48,7 @@ class CouponsController < ApplicationController
   private
 
   def coupon_params
-    params.require(:coupon).permit(:product_name, :expiration_date, :value, store_attributes: [:name])
+    params.require(:coupon).permit(:product_name, :expiration_date, :value, :user_id, :store_id, store_attributes: [:name])
   end
   
   def find_coupon
