@@ -11,7 +11,6 @@ class StoresController < ApplicationController
   end
 
   def create
-   
     @store =Store.new(store_params)
     if @store.save
       redirect_to coupons_path
@@ -23,9 +22,11 @@ class StoresController < ApplicationController
 
   def show
     find_store
-
   end
 
+  def edit
+    find_store
+  end
 
   private
 
