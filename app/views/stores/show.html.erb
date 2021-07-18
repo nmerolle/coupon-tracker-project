@@ -1,3 +1,8 @@
 <h2><%= @store.name %></h2>
 
-<p>Coupons Available for #{@store.name}:<p>
+<p>Coupons Available for <%= @store.name %>:<p>
+  <% @store.coupons.each do |coupon| %>
+    <li><%= link_to coupon.product_name, coupon_path(coupon) %></li>
+  <% end %>
+
+<ul>
