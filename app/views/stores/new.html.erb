@@ -7,6 +7,7 @@
 </div>
 
 <%= f.fields_for :coupons, @store.coupons do |c| %>
+<h4>Add a Coupon</h4>
   <div>
 <%= c.label :product_name %>
 <%= c.text_field :product_name %>

@@ -1,6 +1,7 @@
 <h1>Create New Coupon</h1>
 
-<%= form_for  @coupon do |f| %>
+<%= form_with(model: @coupon) do |f| %>
+
 <div>
 <%= f.label :product_name %>
 <%= f.text_field :product_name %>

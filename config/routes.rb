@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete '/logout' => "sessions#destroy"
-  resources :stores
-  resources :users
+  
+  resources :users, except: [:index]
   resources :coupons
+  resources :stores do
+    resources :coupons, only: [:new, :create, :index, :show]
+  end  
   
 end

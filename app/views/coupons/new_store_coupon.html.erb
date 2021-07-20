@@ -1,0 +1,22 @@
+<h1>Nested Route for store_coupon</h1>
+
+<%= form_with(model: @coupon) do |f| %>
+
+<div>
+<%= f.label :product_name %>
+<%= f.text_field :product_name %>
+</div>
+<div>
+<%= f.label :expiration_date %>
+<%= f.date_field :expiration_date %>
+</div>
+<div>
+<%= f.label :value %>
+<%= f.number_field :value, min: 0, step: 0.01  %>
+</div>
+
+<%= f.hidden_field :store_id %>
+
+<%= f.submit "Add Coupon" %>
+
+<% end %>
