@@ -11,22 +11,8 @@
   </head>
 
   <body>
-  <% if logged_in? %>
-  <%= link_to "Your Coupons", coupons_path %>
-  <%= link_to "Add Coupons", new_coupon_path %>
-  <%= link_to "Your Stores", stores_path %>
-  <%= link_to "Add Store", new_store_path %>
-  <%= link_to "Log Out", logout_path, method: :delete %>
-  <% else %>
-  <%= link_to "Sign Up", signup_path %> |
-  <%= link_to "Log In", login_path %>
-  <% end %>
- 
- <% if flash[:error] %>
-  <% flash[:error].each do |error| %>
-    <p><%= error %></p>
-    <% end %>
-  <% end %>
+    <%= render "layouts/nav" %>
+    <%= render "layouts/errors" %>
   
     <%= yield %>
   </body>

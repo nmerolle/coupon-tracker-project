@@ -28,6 +28,16 @@ class StoresController < ApplicationController
     find_store
   end
 
+  def update
+    find_store
+    @store.update(store_params)
+    if @store.valid?
+      redirect_to stores_path
+    else
+      render :edit 
+    end
+  end
+
   private
 
   def store_params
