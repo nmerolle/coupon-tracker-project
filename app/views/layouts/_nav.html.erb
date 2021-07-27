@@ -1,12 +1,33 @@
-<nav>
- <% if logged_in? %>
-  <%= link_to "Your Coupons", coupons_path %>|
-  <%= link_to "Add Coupons", new_coupon_path %>|
-  <%= link_to "Your Stores", stores_path %>|
-  <%= link_to "Add Store", new_store_path %>|
-  <%= link_to "Log Out", logout_path, method: :delete %>
-  <% else %>
-  <%= link_to "Sign Up", signup_path %> |
-  <%= link_to "Log In", login_path %>
-  <% end %>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Coupon Tracker</a>
+    </div>
+     <% if logged_in? %>
+    <ul class="nav navbar-nav">
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Your Coupons", coupons_path %></li>
+      <li><%= link_to "Add Coupons", new_coupon_path %></li>
+      <li><%= link_to "Your Stores", stores_path %></li>
+      <li><%= link_to "Add Store", new_store_path %></li>
+      <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+    </ul>
+    <% else %>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to signup_path, class: "btn btn-blk" do %>
+            <i class="glyphicon glyphicon-user"></i>Sign Up
+          <% end %>
+      </li>
+      <li><%= link_to login_path, class: "btn btn-blk" do %>
+            <i class="glyphicon glyphicon-log-in"></i>Log In
+          <% end %>
+      </li>
+    </ul>
+    <% end %>
+  </div>
 </nav>
+
+
+
+
+
