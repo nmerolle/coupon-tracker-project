@@ -3,7 +3,7 @@
 <ul>
   <% @coupons.map do |coupon| %>
     <% if current_user.id == coupon.user_id %>
-      <li><%= link_to coupon.product_name, coupon_path(coupon) %></li>
+      <li><%= link_to coupon.product_name, coupon_path(coupon) %>
     <% end %>
   <% end %>
 </ul>

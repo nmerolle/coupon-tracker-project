@@ -1,5 +1,7 @@
 <h1>Add a Store</h1>
 
+<%= render partial: "layouts/errors", locals: {object: @store} %>
+
 <%= form_with(model: @store) do |f| %>
 <div>
 <%= f.label :name %>

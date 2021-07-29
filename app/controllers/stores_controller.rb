@@ -6,8 +6,7 @@ class StoresController < ApplicationController
 
   def new
     @store = Store.new
-    3.times {@store.coupons.build}
-    
+    3.times{@store.coupons.build}
   end
 
   def create
