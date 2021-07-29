@@ -1,5 +1,7 @@
 <h1>Create New Coupon</h1>
 
+<%= render partial: "layouts/errors", locals: {object: @coupon} %>
+
 <%= form_with(model: @coupon) do |f| %>
 
 <div>

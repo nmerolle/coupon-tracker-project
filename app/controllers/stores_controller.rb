@@ -14,7 +14,7 @@ class StoresController < ApplicationController
     if @store.save
       redirect_to coupons_path
     else
-      flash.now[:error] = @store.errors.full_messages
+      flash.now[:message] if flash[:message]
       render :new 
     end
   end

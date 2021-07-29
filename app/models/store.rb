@@ -4,9 +4,7 @@ class Store < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   accepts_nested_attributes_for :coupons, reject_if: :missing_atts?
 
-
-  private
-
+private
   def missing_atts?(att)
     att['product_name'].blank? || att['expiration_date'].blank? || att['value'].blank?
   end
