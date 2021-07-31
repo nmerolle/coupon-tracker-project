@@ -8,6 +8,7 @@ class CouponsController < ApplicationController
       @coupons = @store.coupons
     else
       @coupons = current_user.coupons
+      @expired = @coupons.expired_coupon
     end
   end
 

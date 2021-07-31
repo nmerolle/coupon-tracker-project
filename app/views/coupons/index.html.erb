@@ -3,11 +3,19 @@
 <ul>
   <% @coupons.map do |coupon| %>
     <% if current_user.id == coupon.user_id %>
-      <li><%= link_to coupon.product_name, coupon_path(coupon) %>
+      <li><%= link_to coupon.product_name, coupon_path(coupon) %></li>
     <% end %>
   <% end %>
 </ul>
+      
 <br><br>
 <% if @store %>
   <p><%= link_to "Add a New Coupon for #{@store.name}", new_store_coupon_path(@store)%></p>
-  <% end %>
+<% else %>
+  <h3>Your Expired Coupons:</h3>
+  <ul>
+    <% @expired.each do |expired_coupon| %>
+       <li><%= link_to expired_coupon.product_name, coupon_path(expired_coupon) %></li>
+    <% end %>
+  </ul>
+<% end %>
