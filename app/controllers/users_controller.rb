@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  rescue_from StandardError, with: :deny_access
+
   def new
     @user = User.new
   end
@@ -14,8 +16,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    redirect_if_not_logged_in
     @user = User.find_by_id(params[:id])
+    redirect_if_not_owner
   end
 
 
@@ -23,5 +25,9 @@ private
 
   def user_params
     params.require(:user).permit(:username, :email, :password)
+  end
+
+  def redirect_if_not_owner
+    redirect_to user_path(current_user.id) unless current_user.id == @user.id
   end
 end
