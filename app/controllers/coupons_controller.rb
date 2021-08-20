@@ -80,8 +80,4 @@ class CouponsController < ApplicationController
       @store = Store.find_by_id(params[:store_id])
     end
   end
-
-  def deny_access
-    render :"errors/record_not_found"
-  end
 end
