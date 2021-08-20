@@ -6,7 +6,7 @@ class Store < ApplicationRecord
 
 private
   def missing_atts?(att)
-    att['product_name'].blank? || att['expiration_date'].blank? || att['value'].blank?
+    att['product_name'].blank? || att['expiration_date'].blank? || att['value'].blank?  
   end
 
 end

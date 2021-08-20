@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   def is_email?
     if !email.match(/\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i)
-      errors.add(:email, "please enter a vailid e-mail")
+      errors.add(:email, "Please enter a vailid e-mail")
     end 
   end 
 
